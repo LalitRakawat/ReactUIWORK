@@ -1,0 +1,91 @@
+body{
+    font-family: Arial,sans-serif;
+    /* background-image: url('../imgs/login-page-bg.jpg');
+    background-size: cover;
+    background-repeat: round; */
+    background: linear-gradient(131deg, rgb(0 0 0), #311624 , #000000);
+    height:100vh;
+    color:white;
+}
+
+._flex{
+    display:flex;
+}
+
+
+._midCenter{
+    align-items: center;
+}
+
+._justCenter{
+    justify-content:center;
+}
+
+._flex_d_C{
+    flex-direction:column;
+}
+
+.h100_vh{
+    height:100vh;
+}
+
+
+.loginContainer{
+    width: 800px;
+}
+
+.LoginH1{
+    color: white;
+    font-family: Lucida Handwriting;
+    font-size: 5rem;
+}
+
+.a-right{
+    text-align: right;
+}
+
+.ant-form-item{
+    width:50%;
+}
+
+
+.ant-checkbox-wrapper{
+    color:white;
+}
+
+
+img{
+    min-width: 100px;
+}
+
+.img_res{
+    width: calc(100% - 15px);
+    height: calc(100% - 15px);
+}
+
+.c_menuIcon{
+    font-size:28px;
+    cursor: pointer;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    }
+
+.ant-menu.ant-menu-dark, .ant-menu-dark .ant-menu-sub, .ant-menu.ant-menu-dark .ant-menu-sub {
+    color: rgba(255, 255, 255, 0.65);
+    background: #01386e;
+    box-shadow: 20px 0px 10px -23px rgb(0 0 0 / 50%);
+}
+
+.hide{
+    left: 0px!important;
+}
+
+.rootMenu{
+position: relative;
+left: -260px;
+padding: 15px 0px;
+height: 100%;
+transition: 0.7s;
+}
