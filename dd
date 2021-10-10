@@ -1,0 +1,17 @@
+        useEffect(() => {
+            async function fetchMenu() {
+                const response = await fetch('http://localhost:7003/Menu');
+                const fetchedMenus = await response.json(response);
+            
+                fetchedMenus.forEach((o, ind) => {
+                    Object.assign((t[o.menuID] = t[o.menuID] || {}), o);
+                    t[o.parentMenu] = t[o.parentMenu] || {};
+                    t[o.parentMenu].children = t[o.parentMenu].children || [];
+                    t[o.parentMenu].children.push(t[o.menuID]);
+                })
+
+                menuStack = t[0];
+                t = [];
+            }
+            fetchMenu();
+    }, []);
