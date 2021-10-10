@@ -1,17 +1,30 @@
-        useEffect(() => {
-            async function fetchMenu() {
-                const response = await fetch('http://localhost:7003/Menu');
-                const fetchedMenus = await response.json(response);
-            
-                fetchedMenus.forEach((o, ind) => {
-                    Object.assign((t[o.menuID] = t[o.menuID] || {}), o);
-                    t[o.parentMenu] = t[o.parentMenu] || {};
-                    t[o.parentMenu].children = t[o.parentMenu].children || [];
-                    t[o.parentMenu].children.push(t[o.menuID]);
-                })
+const [menus,setMenu] = useState(0);
+        
+    useEffect(() => {
 
-                menuStack = t[0];
-                t = [];
-            }
-            fetchMenu();
+        fetch("http://localhost:7003/Menu").then((res) => res.json()).then((response) => {
+            if (isArray(response) && response.length > 0) {
+
+                   try {
+                        response.forEach((o, ind) => {
+                            Object.assign((t[o.menuID] = t[o.menuID] || {}), o);
+                            t[o.parentMenu] = t[o.parentMenu] || {};
+                            t[o.parentMenu].children = t[o.parentMenu].children || [];
+                            t[o.parentMenu].children.push(t[o.menuID]);
+                            }) 
+                            
+                            console.log("menusup",t[0])
+                            setMenu(t[0]);
+                            console.log("menus",menus)
+                            t = [] //Clear it ...
+                   } catch (error) {
+                       
+                   } 
+
+             }
+             else {
+                
+             }
+        })
+        
     }, []);
